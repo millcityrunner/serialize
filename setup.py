@@ -5,13 +5,13 @@ with open("Pypi.md", "r") as fh:
 
 setuptools.setup(
     name='serial-j',
-    version='1.1.2',
-    author='Junpu Fan',
-    author_email='junpufan@me.com ',
+    version='1.1.3',
+    author='Junpu Fan - Original, Andrew Ray - Maintainer',
+    author_email='andrew.ray2@target.com',
     description='Validating and Serializing JSON data into Python object with minimal effort.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/JunpuFan/serial-j',
+    url='https://git.target.com/InfraServices-Storage/serial-j',
     license='MIT',
     packages=setuptools.find_packages(),
     classifiers=[

@@ -1,5 +1,3 @@
-import sys
-
 from serial_j import SerialJ
 from tests.unit import const
 from tests.conftest import TestNameParameter, TestTypeParameter, TestNullableParameter, TestOptionalParameter, \
@@ -142,13 +140,5 @@ class TestSuite(object):
         print('Successfully passed all success and fail cases in the validation method.')
 
 
-
 if __name__ == '__main__':
     ts = TestSuite()
-
-
-    # run ops
-    # todo - rundown list
-    #   3. preproc
-    #   4. proc
-    #   5. as_dict
