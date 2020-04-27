@@ -12,6 +12,10 @@ pipeline:
     image: python:3.7.0
     commands:
       - python ./tests/unit/__init__.py
+    when:
+      event: [ push, pull_request ]
+      branch: master
+
   build-and-deploy-egg:
     group: final-deploy-steps
     image: python:3.7.0
