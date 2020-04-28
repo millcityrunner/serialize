@@ -11,6 +11,7 @@ pipeline:
     group: testing
     image: python:3.7.0
     commands:
+      - pwd
       - python ./tests/unit/tests.py
 
     when:
