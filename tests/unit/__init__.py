@@ -30,7 +30,7 @@ class Expected(object):
         return self._data
 
 
-class TestSuite(object):
+class Suite(object):
     serializer = {}
 
     def __init__(self):

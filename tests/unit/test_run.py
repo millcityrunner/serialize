@@ -1,5 +1,5 @@
-from tests.unit import TestSuite
+from tests.unit import Suite
 
 
 def test_full_run():
-    ts = TestSuite()
+    ts = Suite()
