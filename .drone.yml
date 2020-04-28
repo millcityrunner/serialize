@@ -11,10 +11,10 @@ pipeline:
     group: testing
     image: python:3.7.0
     commands:
-      - pwd
       - python ./tests/unit/__init__.py
+
     when:
-      event: [ push, pull_request ]
+      event: push
       branch: master
 
   build-and-deploy-egg:
