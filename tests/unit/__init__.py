@@ -9,6 +9,7 @@ from tests.conftest import TestNameParameter, TestTypeParameter, TestNullablePar
     test_compound_schema_data_success, test_compound_schema_data_failure, test_compound_serializer_data_success, \
     test_compound_serializer_data_failure
 
+import logging
 
 class Expected(object):
     """Class contains data used for unit testing.
@@ -116,7 +117,7 @@ class Suite(object):
 
                             else:
                                 assert False
-        print('Successfully passed all success and fail cases in data serialization.')
+        logging.info('Successfully passed all success and fail cases in data serialization.')
 
     def _valid_type(self):
         for suc_subtype in const._spbtps:
@@ -128,7 +129,7 @@ class Suite(object):
         for fail_empties in const._empt:
             assert self.serial_j.valid_type((fail_empties,)) is False
 
-        print('Successfully passed all success and fail cases in the type validation.')
+        logging.info('Successfully passed all success and fail cases in the type validation.')
 
     def _validation(self):
         for succ_matches in const._mtchs:
@@ -137,4 +138,4 @@ class Suite(object):
         for fail_matches in const._f_mtchs:
             assert self.serial_j.validated(fail_matches[0], fail_matches[1]) is False
 
-        print('Successfully passed all success and fail cases in the validation method.')
+        logging.info('Successfully passed all success and fail cases in the validation method.')
