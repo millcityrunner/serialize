@@ -11,7 +11,7 @@ pipeline:
     group: testing
     image: python:3.7.0
     commands:
-      - python ./test/unit/tests.py
+      - python ./tests/unit/tests.py
 
     when:
       event: [push, pull_request]
