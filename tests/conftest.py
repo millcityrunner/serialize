@@ -151,7 +151,7 @@ def test_name_param_data_success():
 def test_type_param_data_success():
     return {
         'var1': 1,
-        'var2': 1000,
+        'var2': 4,
         'var3': 1.23,
         'var4': True,
         'var5': 'string',
