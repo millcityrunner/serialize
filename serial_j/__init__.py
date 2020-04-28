@@ -184,14 +184,3 @@ class SerialJ(object):
 
     def __repr__(self) -> str:
         return self._to_str()
-
-
-if __name__ == '__main__':
-    class TestRun(SerialJ):
-        schema = [
-            {'name': 'andrew', 'type': (int,)}
-        ]
-
-    test_data = {'andrew': 'hi'}
-    s = TestRun(data=test_data)
-
