@@ -138,10 +138,3 @@ class TestSuite(object):
             assert self.serial_j.validated(fail_matches[0], fail_matches[1]) is False
 
         print('Successfully passed all success and fail cases in the validation method.')
-
-
-if __name__ == '__main__':
-    import os
-
-    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-    ts = TestSuite()
