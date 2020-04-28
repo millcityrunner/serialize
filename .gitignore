@@ -1,0 +1,10 @@
+.xml
+*.xml
+.iml
+*.iml
+
+.pyc
+*.pyc
+
+*.idea
+**.idea

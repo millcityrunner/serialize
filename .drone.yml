@@ -1,0 +1,41 @@
+secrets:
+  PLUGIN_SPEC_TOKEN:
+    path: secret/shared/api-platform/api-platform-team/plugin_spec_token
+  docker_username:
+    path: secret/org/InfraServices-Storage/docker_username
+  docker_password:
+    path: secret/org/InfraServices-Storage/docker_password
+
+pipeline:
+  test:
+    group: testing
+    image: python:3.7.0
+    commands:
+      - pip install pytest
+      - pytest -v
+
+    when:
+      event: [push, pull_request]
+      branch: master
+
+  build-and-deploy-egg:
+    group: final-deploy-steps
+    image: python:3.7.0
+    commands:
+      - echo '[distutils]'     >> ~/.pypirc
+      - echo 'index-servers =' >> ~/.pypirc
+      - echo '    tgt-python'  >> ~/.pypirc
+      - echo '[tgt-python]'    >> ~/.pypirc
+      - >
+        echo 'repository: https://binrepo.target.com/artifactory/api/pypi/tgt-python' >> ~/.pypirc
+      - echo "username:" $DOCKER_USERNAME >> ~/.pypirc
+      - echo "password:" $DOCKER_PASSWORD >> ~/.pypirc
+      - apt-get update
+      - apt-get install postgresql software-properties-common freetds-bin freetds-common freetds-dev wget gcc g++ make zlibc zlib1g-dev openssl libssl-dev git -y
+      - python ./setup.py install
+      - python ./setup.py sdist upload --repository tgt-python
+    secrets: [ docker_username, docker_password ]
+    when:
+      # eventual support for test non-kubernetes servers
+      branch: [ master ]
+      event: push

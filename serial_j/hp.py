@@ -59,7 +59,7 @@ def _valid_url(_str):
     return url_pattern.fullmatch(_str) is not None
 
 
-def _err(e, _name, _type=None, data=None):
+def _err(e, _name, _type=None, data=None, _default=None, _expected=None):
     if e == 0:
         return f"Property '{_name}' not found in {data}."
     elif e == 1:
@@ -70,10 +70,16 @@ def _err(e, _name, _type=None, data=None):
         return (f"Compound Property '{_name}' does not have a proper "
                 f"serializer or schema.")
     elif e == 4:
-        return (f"Property: '{_name}' with Value: '{data}' does not confirm "
+        return (f"Property: '{_name}' with Value: '{data}' does not conform "
                 f"with Type: {str(_type)}.")
     elif e == 5:
         return f"Type: {str(_type)} for property '{_name}' is not valid."
+    elif e == 6:
+        return f"Property: '{_name}' cannot have a default value when it is required."
+    elif e == 7:
+        return f"Property: '{_name}' does not have a defaulted value: {_default} that is of type: {_type}."
+    elif e == 8:
+        return f"Property: '{_name}' has an unexpected type: {_type}, expected: {_expected}."
 
 
 _spsstps = dict(
