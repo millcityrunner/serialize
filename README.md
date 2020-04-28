@@ -1,3 +1,9 @@
+## Latest Version
+serial-j='1.1.4'
+
+## Maintainers
+Junpu Fan (Original Author, no longer at company)  
+Andrew Ray, andrew.ray2@target.com (Primary Maintainer)
 
 ## Features 
    1. Serialize JSON / Python Dictionary data into Python object based on a compact data `schema`.
@@ -7,8 +13,8 @@
           1. Your `JSON` data **MUST** contain a property called `my_property` .
           2. Its value **MUST** be a **non-empty** value. 
           3. Non-empty means that the value of  `my_property` can not be `None`, `""`, `()`, `[]`, or `{}`.
-       4. Additional options are available to give you more control over your data definition. Those options are: `nullable`, `optional`, `is_compound`, `compound_serializer`, `compound_schema` and `type`.
-          1. Option `nullable: True` means the value of `my_property` can be `None`.
+       4. Additional options are available to give you more control over your data definition. Those options are: `nullable`, `optional`, `is_compound`, `compound_serializer`, `compound_schema`, `type`, and `default`.
+          1. Option `nullable: True` means the value of `my_property` can be `None`, or a nullable equivalent.
           2. Option `optional: True` means `my_property` may or may not exist in your `JSON` data.
              1. In case `my_property` exist, verify all applicable options.
              2. In case `my_property` doesn't exist, we ignore `my_property`.
@@ -30,7 +36,12 @@
              11. `'type': (str, 'ipv4')` an IPv4 address.
              12. `'type': (str, 'ipv6')` an IPv6 address.
              13. `'type': (str, 'uuid')` an UUID string.
-             14. `'type': (str, '[^@]+@[^@]+\.[^@]+')` a user defined `regex`. 
+             14. `'type': (str, '[^@]+@[^@]+\.[^@]+')` a user defined `regex`.
+          5. Option `default` gives you the power to set a defaulted value for a property in the case where it was not passed in AND the property was optional
+             1. `default` does not work if the property is optional, or in other words `required`
+             2. `default` does a type check against the defined `type` if passed in
+                1. if the type of the `default` value does not conform with the `type` defined, then an error will be thrown
+             3. `default` defaulted value is `None`, therefore both `True` and `False` are also supported in the `default` realm of options.
    2. Automatically validate every JSON properties defined in the `schema` based on varies additional options specified in `schema`.
    3. You are given convenient built-in methods that you can use to convert your data back to JSON encoded string or JSON / Python Dictionary.
    4. You have the flexibility of defining additional methods in your serializer class that utilize your data in anyway you want.
@@ -59,6 +70,8 @@
 | Data Type Validation: `str ipv4`                      | [str_ipv4_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_ipv4_data.py) |
 | Data Type Validation: `str ipv6`                      | [str_ipv6_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_ipv6_data.py) |
 | Data Type Validation: `str regex`                     | [str_regex_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_regex_data.py) |
+| Default Data: `default`                               | [extra_params_ex.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/extra_params_ex.py) |
+
 
 
 
@@ -207,7 +220,7 @@ print(my_snacks)
 
 ## Data Type Validation 
 
-a compact example that shows all data types currently suppoted by this package.
+a compact example that shows all data types currently supported by this package.
 
 ```python
 from serial_j import SerialJ
@@ -260,3 +273,47 @@ print(data1)
 
 ```
 
+## Defaulting Data on Optional Properties Absence
+
+a simple way to ensure a value is set at all times for optional properties in a JSON schema
+
+```python
+from serial_j import SerialJ
+
+class DefaultingValues(SerialJ):
+    schema = [
+        {'name': 'var1', 'type': (int,), 'optional': True, 'default': 0},
+        {'name': 'var2', 'type': (str,), 'optional': True, 'default': 'str'},
+        {'name': 'var3', 'type': (float,), 'optional': True, 'default': 1.25},
+        {'name': 'var4', 'type': (bool,), 'optional': True, 'default': True},
+        {'name': 'var5', 'type': (int, (1, 3, 5)), 'optional': True, 'default': 3}
+    ]
+    
+### acceptable bodies to pass in
+# since all properties are optional, no values are required to be passed in
+# all values will be set to their defined default value
+test1 = {}
+data1 = DefaultingValues(data=test1)
+
+# choosing some but not all properties will also work, as var2, var3, var5 will be set to their default values
+test2 = {'var1': 24, 'var4': False}
+data2 = DefaultingValues(data=test2)
+
+
+class InvalidDefaultValues(SerialJ):
+    schema = [
+        {'name': 'var1', 'type': (int,), 'default': 0},
+        {'name': 'var2', 'type': (str,), 'optional': True, 'default': 1},
+        {'name': 'var3', 'type': (float,), 'optional': True, 'default': True},
+        {'name': 'var4', 'type': (bool,), 'optional': True, 'default': False},
+        {'name': 'var5', 'type': (int, (1, 3, 5)), 'default': 3}
+    ]
+    
+# var1 is not optional, therefore a default value cannot be set
+# var2 has a defined type of `str`, but a defaulted value of `int`
+# var3 has a defined type of `float`, but a defaulted value of `bool`
+# var4 is acceptable
+# var5 is not optional, therefore a default value cannot be set
+
+``` 
+**Note: The schema's of a SerialJ are not validated until a dataset is passed into the Class, therefore improper schema definitions are acceptable, but will fail to build.**

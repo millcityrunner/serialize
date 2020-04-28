@@ -39,3 +39,4 @@ pipeline:
       # eventual support for test non-kubernetes servers
       branch: [ master ]
       event: push
+
