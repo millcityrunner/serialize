@@ -14,7 +14,7 @@ pipeline:
       - python ./tests/unit/__init__.py
 
     when:
-      event: push
+      event: [push, pull_request]
       branch: master
 
   build-and-deploy-egg:
