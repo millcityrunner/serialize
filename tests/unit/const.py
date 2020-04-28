@@ -11,9 +11,11 @@ _def_fail = 'default_failure'
 
 _spbtps = (int, float, bool, str)
 _empt = (None, "", (), [], {})
+
 _mtchs = [((int,), 3), ((int, range(1,5)), 3), ((int, lambda x: x > 0), 3),
           ((str,), 'string'), ((str, ('SUCCESS', 'FAILURE')), 'SUCCESS'),
           ((str, '^[A-Za-z0-9]{2}$'), 'a9'), ((float,), 1.2), ((bool,), True)]
+
 _f_mtchs = [(int, 3), (str, 'string'), (float, 'string'), (bool, 3),
             ((int, 2, 3), 3), ((str,), 3), ((int,), 'string'), ((float,), 'string'),
             ((bool,), 3)]

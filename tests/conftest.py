@@ -205,26 +205,6 @@ def test_compound_serializer_data_success():
     }
 
 
-def test_valid_type_data_success():
-    pass
-
-
-def test_validate_data_success():
-    pass
-
-
-def test_preproc_data_success():
-    pass
-
-
-def test_proc_data_success():
-    pass
-
-
-def test_as_dict_data_success():
-    pass
-
-
 # fail cases
 def test_name_param_data_failure():
     return {
@@ -554,23 +534,3 @@ def test_compound_serializer_data_failure():
             }
         }
     }
-
-
-def test_valid_type_data_failure():
-    pass
-
-
-def test_validate_data_failure():
-    pass
-
-
-def test_preproc_data_failure():
-    pass
-
-
-def test_proc_data_failure():
-    pass
-
-
-def test_as_dict_data_failure():
-    pass
