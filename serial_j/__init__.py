@@ -13,7 +13,6 @@ class SerialJ(object):
 
     def __init__(self, data):
         self.preproc(data)
-        self.invalid_fields_check(data)
         self.proc(data)
 
     @staticmethod
@@ -131,6 +130,8 @@ class SerialJ(object):
             prop[_srl] = _serializer
             prop[_sch] = _schema
             prop[_def] = _default
+
+            self.invalid_fields_check(data)
 
     def proc(self, data):
         for prop in self.schema:

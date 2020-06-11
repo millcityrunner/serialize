@@ -78,7 +78,7 @@ class Suite(object):
                    suc_data=test_compound_serializer_data_success(),
                    fail_data=test_compound_serializer_data_failure())
 
-        self._bind(_type=const._miss_succ,
+        self._bind(_type=const._miss_keys,
                    serializer=TestInvalidFields,
                    suc_data=None,
                    fail_data=test_invalid_fields_check())

@@ -8,7 +8,7 @@ _sch = 'compound_schema'
 _def = 'default'
 _def_succ = 'default_success'
 _def_fail = 'default_failure'
-_miss_succ = 'missing_success'
+_miss_keys = 'missing_keys'
 
 
 _spbtps = (int, float, bool, str)

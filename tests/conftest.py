@@ -226,7 +226,7 @@ def test_name_param_data_failure():
                     'var1': 'string',
                     'variable2': 'string'
                 },
-                'expected': ValueError(f"Property 'var2' not found in None.")
+                'expected': KeyError(f"The following fields were invalid or misspelled: '[variable2]'.")
             }, 3: {
                 'data': {},
                 'expected': ValueError(f"Property 'var1' not found in None.")
@@ -480,7 +480,7 @@ def test_compound_schema_data_failure():
                         'num2': 4
                     }
                 },
-                'expected': ValueError()
+                'expected': KeyError(f"The following fields were invalid or misspelled: '[num3, num4]'.")
             }, 2: {
                 'data': {
                     'var2': {
@@ -553,7 +553,9 @@ def test_invalid_fields_check():
                 'data': {
                     'var1': 'string',
                     'var2': 'string',
-                    'invalid_field': 'string'
+                    'invalid_field': 'string',
+                    'ver2': 0,
+                    'var5': 'string'
                 },
                 'expected': KeyError(f"The following fields were invalid or misspelled: '[invalid_field]'.")
             }
