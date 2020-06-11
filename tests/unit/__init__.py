@@ -79,9 +79,9 @@ class Suite(object):
                    fail_data=test_compound_serializer_data_failure())
 
         self._bind(_type=const._miss_succ,
-                   serializer=TestMisspelledParameter,
+                   serializer=TestInvalidFields,
                    suc_data=None,
-                   fail_data=test_misspelled_fields_failure())
+                   fail_data=test_invalid_fields_check())
 
         self._execute()
         self._valid_type()
