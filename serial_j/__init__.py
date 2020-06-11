@@ -13,6 +13,7 @@ class SerialJ(object):
 
     def __init__(self, data):
         self.preproc(data)
+        self.spell_check(data)
         self.proc(data)
 
     @staticmethod
@@ -161,6 +162,22 @@ class SerialJ(object):
             else:
                 if _default:
                     self.__dict__[_name] = _default
+
+    def spell_check(self, req_data):
+        '''
+        Check for misspelled fields in request body
+        '''
+        invalid_fields = []
+        property_names = [prop[_na] for prop in self.schema]
+        for field in req_data:
+            if field not in property_names:
+                invalid_fields.append(field)
+        print(req_data)
+        print(invalid_fields)
+
+        if len(invalid_fields) > 0:
+            raise KeyError(_err(e=9, _name=name, data=invalid_fields))
+
 
     def as_dict(self):
         _d = {}

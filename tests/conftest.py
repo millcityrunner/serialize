@@ -138,6 +138,12 @@ class TestCompoundSerializerFunctionality(SerialJ):
         {'name': 'var1', 'is_compound': True, 'compound_serializer': CompoundSerializerHelper}
     ]
 
+class TestMisspelledParameter(SerialJ):
+    schema = [
+        # success cases
+        {'name': 'var1', 'type': (str,)},
+        {'name': 'var2', 'type': (str,)},
+    ]
 
 # test data
 # success cases
@@ -531,6 +537,25 @@ def test_compound_serializer_data_failure():
                     }
                 },
                 'expected': ValueError()
+            }
+        }
+    }
+
+
+def test_misspelled_fields_failure():
+    '''
+    technically this is a success case,
+    but marked as failure because we expect an exception to be raised
+    '''
+    return {
+        'cases': {
+            1: {
+                'data': {
+                    'var1': 'string',
+                    'var2': 'string',
+                    'invalid_field': 'string'
+                },
+                'expected': KeyError(f"The following fields were invalid or misspelled: '[invalid_field]'.")
             }
         }
     }
