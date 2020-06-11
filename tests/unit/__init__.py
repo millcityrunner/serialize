@@ -2,12 +2,12 @@ from serial_j import SerialJ
 from tests.unit import const
 from tests.conftest import TestNameParameter, TestTypeParameter, TestNullableParameter, TestOptionalParameter, \
     TestDefaultParameter, TestDefaultParameterFailure, TestCompoundSchemaFunctionality, \
-    TestCompoundSerializerFunctionality, TestMisspelledParameter, test_name_param_data_success, \
+    TestCompoundSerializerFunctionality, TestInvalidFields, test_name_param_data_success, \
     test_name_param_data_failure, test_type_param_data_success, test_type_param_data_failure, \
     test_nullable_param_data_success, test_nullable_param_data_failure, test_optional_param_data_success, \
     test_optional_param_data_failure, test_default_param_data_success, test_default_param_data_failure, \
     test_compound_schema_data_success, test_compound_schema_data_failure, test_compound_serializer_data_success, \
-    test_compound_serializer_data_failure, test_misspelled_fields_failure
+    test_compound_serializer_data_failure, test_invalid_fields_check
 
 import logging
 

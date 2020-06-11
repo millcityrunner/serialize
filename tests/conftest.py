@@ -138,7 +138,7 @@ class TestCompoundSerializerFunctionality(SerialJ):
         {'name': 'var1', 'is_compound': True, 'compound_serializer': CompoundSerializerHelper}
     ]
 
-class TestMisspelledParameter(SerialJ):
+class TestInvalidFields(SerialJ):
     schema = [
         # success cases
         {'name': 'var1', 'type': (str,)},
@@ -542,7 +542,7 @@ def test_compound_serializer_data_failure():
     }
 
 
-def test_misspelled_fields_failure():
+def test_invalid_fields_check():
     '''
     technically this is a success case,
     but marked as failure because we expect an exception to be raised
