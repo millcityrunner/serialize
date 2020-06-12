@@ -557,7 +557,7 @@ def test_invalid_fields_check():
                     'ver2': 0,
                     'var5': 'string'
                 },
-                'expected': KeyError(f"The following fields were invalid or misspelled: '[invalid_field]'.")
+                'expected': KeyError(f"The following fields were invalid or misspelled: 'invalid_field', 'ver2', 'var5'.")
             }
         }
     }

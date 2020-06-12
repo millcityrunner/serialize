@@ -173,7 +173,7 @@ class SerialJ(object):
         for field in req_data:
             if field not in property_names:
                 invalid_fields.append(field)
-
+        print(invalid_fields)
         if len(invalid_fields) > 0:
             raise KeyError(_err(e=9, _name=name, data=invalid_fields))
 
