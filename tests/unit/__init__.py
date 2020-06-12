@@ -2,12 +2,12 @@ from serial_j import SerialJ
 from tests.unit import const
 from tests.conftest import TestNameParameter, TestTypeParameter, TestNullableParameter, TestOptionalParameter, \
     TestDefaultParameter, TestDefaultParameterFailure, TestCompoundSchemaFunctionality, \
-    TestCompoundSerializerFunctionality, test_name_param_data_success, \
+    TestCompoundSerializerFunctionality, TestInvalidFields, test_name_param_data_success, \
     test_name_param_data_failure, test_type_param_data_success, test_type_param_data_failure, \
     test_nullable_param_data_success, test_nullable_param_data_failure, test_optional_param_data_success, \
     test_optional_param_data_failure, test_default_param_data_success, test_default_param_data_failure, \
     test_compound_schema_data_success, test_compound_schema_data_failure, test_compound_serializer_data_success, \
-    test_compound_serializer_data_failure
+    test_compound_serializer_data_failure, test_invalid_fields_check
 
 import logging
 
@@ -78,6 +78,11 @@ class Suite(object):
                    suc_data=test_compound_serializer_data_success(),
                    fail_data=test_compound_serializer_data_failure())
 
+        self._bind(_type=const._miss_keys,
+                   serializer=TestInvalidFields,
+                   suc_data=None,
+                   fail_data=test_invalid_fields_check())
+
         self._execute()
         self._valid_type()
         self._validation()
@@ -112,7 +117,7 @@ class Suite(object):
                             try:
                                 self.serializer[binding](data=fail_test_data)
 
-                            except (ValueError, TypeError) as e:
+                            except (ValueError, TypeError, KeyError) as e:
                                 assert type(e) == type(fail_test_expected)
 
                             else:

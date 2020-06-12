@@ -138,6 +138,12 @@ class TestCompoundSerializerFunctionality(SerialJ):
         {'name': 'var1', 'is_compound': True, 'compound_serializer': CompoundSerializerHelper}
     ]
 
+class TestInvalidFields(SerialJ):
+    schema = [
+        # success cases
+        {'name': 'var1', 'type': (str,)},
+        {'name': 'var2', 'type': (str,)},
+    ]
 
 # test data
 # success cases
@@ -220,7 +226,7 @@ def test_name_param_data_failure():
                     'var1': 'string',
                     'variable2': 'string'
                 },
-                'expected': ValueError(f"Property 'var2' not found in None.")
+                'expected': KeyError(f"The following fields were invalid or misspelled: '[variable2]'.")
             }, 3: {
                 'data': {},
                 'expected': ValueError(f"Property 'var1' not found in None.")
@@ -474,7 +480,7 @@ def test_compound_schema_data_failure():
                         'num2': 4
                     }
                 },
-                'expected': ValueError()
+                'expected': KeyError(f"The following fields were invalid or misspelled: '[num3, num4]'.")
             }, 2: {
                 'data': {
                     'var2': {
@@ -531,6 +537,27 @@ def test_compound_serializer_data_failure():
                     }
                 },
                 'expected': ValueError()
+            }
+        }
+    }
+
+
+def test_invalid_fields_check():
+    '''
+    technically this is a success case,
+    but marked as failure because we expect an exception to be raised
+    '''
+    return {
+        'cases': {
+            1: {
+                'data': {
+                    'var1': 'string',
+                    'var2': 'string',
+                    'invalid_field': 'string',
+                    'ver2': 0,
+                    'var5': 'string'
+                },
+                'expected': KeyError(f"The following fields were invalid or misspelled: 'invalid_field', 'ver2', 'var5'.")
             }
         }
     }
