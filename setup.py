@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='serial-j',
-    version='1.1.5',
+    version='1.1.6',
     author='Andrew Ray',
     author_email='andrew.ray2@target.com',
     description='Creating a serializer for data structures',
