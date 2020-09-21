@@ -82,6 +82,8 @@ def _err(e, _name, _type=None, data=None, _default=None, _expected=None):
         return f"Property: '{_name}' has an unexpected type: {_type}, expected: {_expected}."
     elif e == 9:
         return f"The following fields were invalid or misspelled: '{data}'."
+    elif e == 10:
+        return f"Property: {_name} is a null object and has no as_dict() attribute."
 
 _spsstps = dict(
     uuid=_valid_uuid,

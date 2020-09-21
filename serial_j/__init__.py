@@ -183,10 +183,15 @@ class SerialJ(object):
         for prop in self.schema:
             _name = prop[_na]
             if prop[_cp]:
-                if isinstance(self.__dict__[_name], list):
-                    _d[_name] = [cp.as_dict() for cp in self.__dict__[_name]]
-                else:
-                    _d[_name] = self.__dict__[_name].as_dict()
+                if self.__dict__ and _name in self.__dict__.keys():
+                    if isinstance(self.__dict__[_name], list):
+                        _d[_name] = [cp.as_dict() for cp in self.__dict__[_name]]
+                    else:
+                        _d[_name] = self.__dict__[_name].as_dict()
+
+                elif not self.__dict__:
+                    raise ValueError(_err(e=10, _name=_name))
+
             else:
                 if _name in self.__dict__:
                     _d[_name] = self.__dict__[_name]
