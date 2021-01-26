@@ -1,25 +1,16 @@
-secrets:
-  PLUGIN_SPEC_TOKEN:
-    path: secret/shared/api-platform/api-platform-team/plugin_spec_token
-  docker_username:
-    path: secret/org/InfraServices-Storage/docker_username
-  docker_password:
-    path: secret/org/InfraServices-Storage/docker_password
+version: "1"
 
-pipeline:
-  test:
-    group: testing
+steps:
+  - name: test
     image: python:3.7.0
     commands:
       - pip install pytest
       - pytest -v
-
-    when:
-      event: [push, pull_request]
+    ruleset:
+      event: [ push, pull_request ]
       branch: master
 
-  build-and-deploy-egg:
-    group: final-deploy-steps
+  - name: build-and-deploy-egg
     image: python:3.7.0
     commands:
       - echo '[distutils]'     >> ~/.pypirc
@@ -35,8 +26,22 @@ pipeline:
       - python ./setup.py install
       - python ./setup.py sdist upload --repository tgt-python
     secrets: [ docker_username, docker_password ]
-    when:
-      # eventual support for test non-kubernetes servers
-      branch: [ master ]
+    ruleset:
       event: push
+      branch: master
 
+secrets:
+  - name: docker_username
+    key: InfraServices-Storage/docker_username
+    type: org
+    engine: native
+
+  - name: docker_password
+    key: InfraServices-Storage/docker_password
+    type: org
+    engine: native
+
+  - name: PLUGIN_SPEC_TOKEN
+    key: api-platform/api-platform-team/plugin_spec_token
+    type: shared
+    engine: native
