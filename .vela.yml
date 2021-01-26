@@ -24,7 +24,7 @@ steps:
       - apt-get update
       - apt-get install postgresql software-properties-common freetds-bin freetds-common freetds-dev wget gcc g++ make zlibc zlib1g-dev openssl libssl-dev git -y
       - python ./setup.py install
-      - python ./setup.py sdist upload --repository tgt-pythonhon ./setup.py sdist upload --repository tgt-python
+      - python ./setup.py sdist upload --repository tgt-python
     secrets: [ docker_username, docker_password ]
     ruleset:
       event: push
