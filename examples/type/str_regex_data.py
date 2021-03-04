@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class StrRegexData(Serialize):
+class StrRegexData(serialize-mcr):
     schema = [
         {'name': 'prop1',
          'type': (str, r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")}

@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class StrEnumerationData(Serialize):
+class StrEnumerationData(serialize-mcr):
     schema = [
         {'name': 'prop1', 'type': (str, ('SUCCESS', 'FAILURE'))}
     ]

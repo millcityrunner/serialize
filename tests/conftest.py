@@ -40,18 +40,18 @@ instantiated.
     https://docs.pytest.org/en
     /latest/fixture.html#fixture-finalization-executing-teardown-code
 """
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-# serializers
-class TestNameParameter(Serialize):
+# serialize-mcrrs
+class TestNameParameter(serialize-mcr):
     schema = [
         # success cases
         {'name': 'var1', 'type': (str,)},
         {'name': 'var2', 'type': (str,)}
     ]
 
-class TestTypeParameter(Serialize):
+class TestTypeParameter(serialize-mcr):
     test_regex = "^[A-Za-z]{1}[0-9]{1}$"
     schema = [
         {'name': 'var1', 'type': (int,), 'optional': True},
@@ -70,21 +70,21 @@ class TestTypeParameter(Serialize):
     ]
 
 
-class TestNullableParameter(Serialize):
+class TestNullableParameter(serialize-mcr):
     schema = [
         {'name': 'var1', 'type': (str,), 'nullable': False},
         {'name': 'var2', 'type': (str,), 'nullable': True}
     ]
 
 
-class TestOptionalParameter(Serialize):
+class TestOptionalParameter(serialize-mcr):
     schema = [
         {'name': 'var1', 'type': (str,), 'optional': True},
         {'name': 'var2', 'type': (str,), 'optional': False}
     ]
 
 
-class TestDefaultParameter(Serialize):
+class TestDefaultParameter(serialize-mcr):
     test_regex = '^[A-Za-z0-9]{3}$'
     schema = [
         {'name': 'var1', 'type': (str,), 'optional': True, 'default': 'string'},
@@ -98,7 +98,7 @@ class TestDefaultParameter(Serialize):
     ]
 
 
-class TestDefaultParameterFailure(Serialize):
+class TestDefaultParameterFailure(serialize-mcr):
     test_regex = '^[A-Za-z0-9]{3}$'
     schema = [
         {'name': 'var1', 'type': (str,), 'optional': True, 'default': 1},
@@ -112,7 +112,7 @@ class TestDefaultParameterFailure(Serialize):
     ]
 
 
-class TestCompoundSchemaFunctionality(Serialize):
+class TestCompoundSchemaFunctionality(serialize-mcr):
     schema = [
         {'name': 'var1', 'is_compound': True,
          'compound_schema': [
@@ -127,18 +127,18 @@ class TestCompoundSchemaFunctionality(Serialize):
     ]
 
 
-class CompoundSerializerHelper(Serialize):
+class Compoundserialize-mcrrHelper(serialize-mcr):
     schema = [
         {'name': 'num1', 'type': (int,)}
     ]
 
 
-class TestCompoundSerializerFunctionality(Serialize):
+class TestCompoundserialize-mcrrFunctionality(serialize-mcr):
     schema = [
-        {'name': 'var1', 'is_compound': True, 'compound_serializer': CompoundSerializerHelper}
+        {'name': 'var1', 'is_compound': True, 'compound_serialize-mcrr': Compoundserialize-mcrrHelper}
     ]
 
-class TestInvalidFields(Serialize):
+class TestInvalidFields(serialize-mcr):
     schema = [
         # success cases
         {'name': 'var1', 'type': (str,)},
@@ -203,7 +203,7 @@ def test_compound_schema_data_success():
     }
 
 
-def test_compound_serializer_data_success():
+def test_compound_serialize-mcrr_data_success():
     return {
         'var1': {
             'num1': 1
@@ -506,7 +506,7 @@ def test_compound_schema_data_failure():
     }
 
 
-def test_compound_serializer_data_failure():
+def test_compound_serialize-mcrr_data_failure():
     return {
         'cases': {
             1: {

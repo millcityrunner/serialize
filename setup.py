@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='serialize',
+    name='serialize-mcr',
     version='0.0.1',
     author='Andrew Ray',
     author_email='rayam@iu.edu',
     description='Creating a serializer for data structures',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/millcityrunner/serialize',
+    url='https://github.com/millcityrunner/serialize-mcr',
     license='MIT',
     packages=setuptools.find_packages(),
     install_requires=[

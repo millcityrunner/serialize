@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class StrIPv4Data(Serialize):
+class StrIPv4Data(serialize-mcr):
     schema = [
         {'name': 'prop1', 'type': (str, 'ipv4')}
     ]
