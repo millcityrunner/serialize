@@ -1,4 +1,4 @@
-from serial_j import SerialJ
+from serialize import SerialJ
 
 
 class Snack(SerialJ):

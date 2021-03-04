@@ -1,9 +1,9 @@
 ## Latest Version
-serial-j='1.1.4'
+serialize='0.0.1'
 
 ## Maintainers
-Junpu Fan (Original Author, no longer at company)  
-Andrew Ray, andrew.ray2@target.com (Primary Maintainer)
+Junpu Fan (Original Author, `serial-j` = https://github.com/JunpuFan/serial-j/blob/master)  
+Andrew Ray, rayam@iu.edu (Primary Maintainer)
 
 ## Features 
    1. Serialize JSON / Python Dictionary data into Python object based on a compact data `schema`.
@@ -20,7 +20,7 @@ Andrew Ray, andrew.ray2@target.com (Primary Maintainer)
              2. In case `my_property` doesn't exist, we ignore `my_property`.
           3. Option `is_compound: True` means `my_property` is a nested `JSON` object or an Array of `JSON` objects.
              1. When `is_compound: True`, you must provide either `compound_serializer` or `compound_schema` so we can property serialize this nested data structure.
-                1. `compound_serializer` is a `SerialJ` serializer class.
+                1. `compound_serializer` is a `Serialize` serializer class.
                 2. `compound_schema` has the same structure as the data `schema`.
           4. Option `type` gives you the power to validate the value of each property in your `JSON` data. Currently supported type definitions are:
              1. `'type': (bool,)` a boolean value.
@@ -52,25 +52,25 @@ Andrew Ray, andrew.ray2@target.com (Primary Maintainer)
 
 | Name                                                  | Code                                                         |
 | ----------------------------------------------------- | ------------------------------------------------------------ |
-| Basic Example                                         | [basic_ex.py](https://github.com/JunpuFan/serial-j/blob/master/examples/basic_ex.py) |
-| Serialize Nested Json Data with `compound_schema`     | [nested_ex2.py](https://github.com/JunpuFan/serial-j/blob/master/examples/nested_ex2.py) |
-| Serialize Nested Json Data with `compound_serializer` | [nested_ex1.py](https://github.com/JunpuFan/serial-j/blob/master/examples/nested_ex1.py) |
-| Data Type Validation: all in one example              | [typed_ex.py](https://github.com/JunpuFan/serial-j/blob/master/examples/typed_ex.py) |
-| Data Type Validation: `bool`                          | [bool_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/bool_data.py) |
-| Data Type Validation: `float`                         | [float_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/float_data.py) |
-| Data Type Validation: `int`                           | [int_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/int_data.py) |
-| Data Type Validation: `int enum`                      | [int_enum_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/int_enum_data.py) |
-| Data Type Validation: `int range`                     | [int_ranged_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/int_ranged_data.py) |
-| Data Type Validation: `int lambda`                    | [int_lambda_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/int_lambda_data.py) |
-| Data Type Validation: `str`                           | [str_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_data.py) |
-| Data Type Validation: `str enum`                      | [str_enum_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_enum_data.py) |
-| Data Type Validation: `str email`                     | [str_email_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_email_data.py) |
-| Data Type Validation: `str url`                       | [str_url_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_url_data.py) |
-| Data Type Validation: `str uuid`                      | [str_uuid_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_uuid_data.py) |
-| Data Type Validation: `str ipv4`                      | [str_ipv4_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_ipv4_data.py) |
-| Data Type Validation: `str ipv6`                      | [str_ipv6_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_ipv6_data.py) |
-| Data Type Validation: `str regex`                     | [str_regex_data.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/str_regex_data.py) |
-| Default Data: `default`                               | [extra_params_ex.py](https://github.com/JunpuFan/serial-j/blob/master/examples/type/extra_params_ex.py) |
+| Basic Example                                         | [basic_ex.py](https://github.com/millcityrunner/serialize/blob/master/examples/basic_ex.py) |
+| Serialize Nested Json Data with `compound_schema`     | [nested_ex2.py](https://github.com/millcityrunner/serialize/blob/master/examples/nested_ex2.py) |
+| Serialize Nested Json Data with `compound_serializer` | [nested_ex1.py](https://github.com/millcityrunner/serialize/blob/master/examples/nested_ex1.py) |
+| Data Type Validation: all in one example              | [typed_ex.py](https://github.com/millcityrunner/serialize/blob/master/examples/typed_ex.py) |
+| Data Type Validation: `bool`                          | [bool_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/bool_data.py) |
+| Data Type Validation: `float`                         | [float_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/float_data.py) |
+| Data Type Validation: `int`                           | [int_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_data.py) |
+| Data Type Validation: `int enum`                      | [int_enum_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_enum_data.py) |
+| Data Type Validation: `int range`                     | [int_ranged_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_ranged_data.py) |
+| Data Type Validation: `int lambda`                    | [int_lambda_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_lambda_data.py) |
+| Data Type Validation: `str`                           | [str_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_data.py) |
+| Data Type Validation: `str enum`                      | [str_enum_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_enum_data.py) |
+| Data Type Validation: `str email`                     | [str_email_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_email_data.py) |
+| Data Type Validation: `str url`                       | [str_url_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_url_data.py) |
+| Data Type Validation: `str uuid`                      | [str_uuid_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_uuid_data.py) |
+| Data Type Validation: `str ipv4`                      | [str_ipv4_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_ipv4_data.py) |
+| Data Type Validation: `str ipv6`                      | [str_ipv6_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_ipv6_data.py) |
+| Data Type Validation: `str regex`                     | [str_regex_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_regex_data.py) |
+| Default Data: `default`                               | [extra_params_ex.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/extra_params_ex.py) |
 
 
 
@@ -79,9 +79,9 @@ Andrew Ray, andrew.ray2@target.com (Primary Maintainer)
 Let's first see a basic example. 
 
 ```python
-from serial_j import SerialJ
+from serialize import Serialize
 
-class FruitBucket(SerialJ):
+class FruitBucket(Serialize):
     # define how our data should look like using `schema`.
     schema = [
         {'name': 'apple'},
@@ -133,9 +133,9 @@ Let's see how we can serialize more complex data structure into python object.
 Define a nested data `schema` called `compound_schema` to serialize nested `JSON` data.
 
 ```python
-from serial_j import SerialJ
+from serialize import Serialize
 
-class SnackBucket(SerialJ):
+class SnackBucket(Serialize):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},
@@ -177,11 +177,11 @@ print(mysnacks)
 
 ##### Serializing Nested JSON Data with `compound_serializer`.
 
-Define a separete data `SerialJ` serializer called `compound_serializer` to serialize nested `JSON` data.
+Define a separete data `Serialize` serializer called `compound_serializer` to serialize nested `JSON` data.
 
 ```python
-from serial_j import SerialJ
-class Snack(SerialJ):
+from serialize import Serialize
+class Snack(Serialize):
     schema = [
         # cheese is nice but is optional.
         {'name': 'cheese', 'optional': True},
@@ -192,7 +192,7 @@ class Snack(SerialJ):
         {'name': 'chips', 'nullable': True},
     ]
     
-class NestedBucket(SerialJ):
+class NestedBucket(Serialize):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},
@@ -223,10 +223,10 @@ print(my_snacks)
 a compact example that shows all data types currently supported by this package.
 
 ```python
-from serial_j import SerialJ
+from serialize import Serialize
 
 
-class TypedData(SerialJ):
+class TypedData(Serialize):
     schema = [
         {'name': 'prop1', 'type': (int,)},
         {'name': 'prop2', 'type': (int, (1, 64, 343))},
@@ -278,9 +278,9 @@ print(data1)
 a simple way to ensure a value is set at all times for optional properties in a JSON schema
 
 ```python
-from serial_j import SerialJ
+from serialize import Serialize
 
-class DefaultingValues(SerialJ):
+class DefaultingValues(Serialize):
     schema = [
         {'name': 'var1', 'type': (int,), 'optional': True, 'default': 0},
         {'name': 'var2', 'type': (str,), 'optional': True, 'default': 'str'},
@@ -300,7 +300,7 @@ test2 = {'var1': 24, 'var4': False}
 data2 = DefaultingValues(data=test2)
 
 
-class InvalidDefaultValues(SerialJ):
+class InvalidDefaultValues(Serialize):
     schema = [
         {'name': 'var1', 'type': (int,), 'default': 0},
         {'name': 'var2', 'type': (str,), 'optional': True, 'default': 1},
@@ -316,4 +316,4 @@ class InvalidDefaultValues(SerialJ):
 # var5 is not optional, therefore a default value cannot be set
 
 ``` 
-**Note: The schema's of a SerialJ are not validated until a dataset is passed into the Class, therefore improper schema definitions are acceptable, but will fail to build.**
+**Note: The schema's of a Serialize are not validated until a dataset is passed into the Class, therefore improper schema definitions are acceptable, but will fail to build.**

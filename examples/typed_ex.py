@@ -1,5 +1,5 @@
 
-from serial_j import SerialJ
+from serialize import SerialJ
 from uuid import UUID
 
 class TypedData(SerialJ):

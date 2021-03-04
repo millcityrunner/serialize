@@ -1,4 +1,4 @@
-from serial_j import SerialJ
+from serialize import SerialJ
 
 class OptionalArgs(SerialJ):
     # the `optional`, `nullable`, and `default` are optional parameters
@@ -42,10 +42,10 @@ if __name__ == '__main__':
     s3 = CannotBeDefaulted(data=test_data)
     print(s3)
     # >>>   Traceback (most recent call last):
-    #           File "/serial-j/examples/extra_params_ex.py", line 41, in <module>
+    #           File "/serialize/examples/extra_params_ex.py", line 41, in <module>
     #               s3 = CannotBeDefaulted(data=test_data)
-    #           File "/serial-j/serial_j/__init__.py", line 15, in __init__
+    #           File "/serialize/serialize/__init__.py", line 15, in __init__
     #               self.preproc(data)
-    #           File "/serial-j/serial_j/__init__.py", line 85, in preproc
+    #           File "/serialize/serialize/__init__.py", line 85, in preproc
     #               raise ValueError(_err(6, _name))
     #       ValueError: Property: 'player_1' cannot have a default value when it is required.
