@@ -3,7 +3,7 @@ serialize='0.0.1'
 
 ## Maintainers
 Junpu Fan (Original Author, `serial-j` = https://github.com/JunpuFan/serial-j/blob/master)  
-Andrew Ray, rayam@iu.edu (Primary Maintainer)
+Andrew Ray, rayam@iu.edu (Primary Maintainer) 
 
 ## Features 
    1. Serialize JSON / Python Dictionary data into Python object based on a compact data `schema`.
