@@ -1,8 +1,8 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
-class OptionalArgs(Serialize):
+class OptionalArgs(serialize-mcr):
     # the `optional`, `nullable`, and `default` are optional parameters
-    # `optional` -> defaults to False, if True this parameter is not required to be passed into the serializer
+    # `optional` -> defaults to False, if True this parameter is not required to be passed into the serialize-mcrr
     # `nullable` -> defaults to False, if True this parameter can be passed in as a `null` equivalent value
     # `default` -> defaults to None, this parameter only applies if the key is not present in the data,
     #                  cannot apply a default value to a key that is defined to NOT be optional
@@ -12,7 +12,7 @@ class OptionalArgs(Serialize):
     ]
 
 
-class CannotBeDefaulted(Serialize):
+class CannotBeDefaulted(serialize-mcr):
     schema = [
         {'name': 'player_1', 'type': (str,), 'optional': False, 'nullable': False, 'default': 'Player 1'}
     ]
@@ -42,10 +42,10 @@ if __name__ == '__main__':
     s3 = CannotBeDefaulted(data=test_data)
     print(s3)
     # >>>   Traceback (most recent call last):
-    #           File "/serialize/examples/extra_params_ex.py", line 41, in <module>
+    #           File "/serialize_mcr/examples/extra_params_ex.py", line 41, in <module>
     #               s3 = CannotBeDefaulted(data=test_data)
-    #           File "/serialize/serialize/__init__.py", line 15, in __init__
+    #           File "/serialize_mcr/serialize_mcr/__init__.py", line 15, in __init__
     #               self.preproc(data)
-    #           File "/serialize/serialize/__init__.py", line 85, in preproc
+    #           File "/serialize_mcr/serialize_mcr/__init__.py", line 85, in preproc
     #               raise ValueError(_err(6, _name))
     #       ValueError: Property: 'player_1' cannot have a default value when it is required.

@@ -3,7 +3,7 @@ _tp = 'type'
 _opt = 'optional'
 _nu = 'nullable'
 _cp = 'is_compound'
-_srl = 'compound_serializer'
+_srl = 'compound_serialize-mcrr'
 _sch = 'compound_schema'
 _def = 'default'
 

@@ -1,14 +1,14 @@
 import json
 from types import LambdaType
 from uuid import UUID
-from serialize.hp import _valid_regex, _regex_match, _err, _spsstps
-from serialize.const import _spbtps, _na, _nu, _tp, _opt, _cp, _srl, \
+from serialize_mcr.hp import _valid_regex, _regex_match, _err, _spsstps
+from serialize_mcr.const import _spbtps, _na, _nu, _tp, _opt, _cp, _srl, \
     _sch, _empt, _def
 
-name = "serialize"
+name = "serialize_mcr"
 
 
-class Serialize(object):
+class SerializeMCR(object):
     schema = []
 
     def __init__(self, data):
@@ -107,7 +107,7 @@ class Serialize(object):
                     if (_compound is True and isinstance(data[_name], list) is False
                             and isinstance(data[_name], dict) is False):
                         raise TypeError(_err(2, _name))
-                    if _compound is True and _serializer is False and _schema is False:
+                    if _compound is True and _serialize-mcrr is False and _schema is False:
                         raise TypeError(_err(3, _name))
 
             else:
@@ -127,7 +127,7 @@ class Serialize(object):
             prop[_opt] = _optional
             prop[_nu] = _nullable
             prop[_cp] = _compound
-            prop[_srl] = _serializer
+            prop[_srl] = _serialize-mcrr
             prop[_sch] = _schema
             prop[_def] = _default
 
@@ -147,7 +147,7 @@ class Serialize(object):
                         elif isinstance(data[_name], dict):
                             self.__dict__[_name] = prop[_srl](data[_name])
                     elif prop[_sch]:
-                        _cls = Serialize
+                        _cls = serialize-mcr
                         _cls.schema = prop[_sch]
                         if isinstance(data[_name], list):
                             self.__dict__[_name] = [_cls(o)

@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class FloatData(Serialize):
+class FloatData(serialize-mcr):
     schema = [
         {'name': 'prop1', 'type': (float,)}
     ]

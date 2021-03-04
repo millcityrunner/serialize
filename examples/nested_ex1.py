@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class Snack(Serialize):
+class Snack(serialize-mcr):
     schema = [
         # cheese is nice but is optional.
         {'name': 'cheese', 'optional': True},
@@ -13,12 +13,12 @@ class Snack(Serialize):
     ]
 
 
-class NestedBucket(Serialize):
+class NestedBucket(serialize-mcr):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},
         {'name': 'pineapple'},
-        {'name': 'snack', 'is_compound': True, 'compound_serializer': Snack}
+        {'name': 'snack', 'is_compound': True, 'compound_serialize-mcrr': Snack}
     ]
 
 

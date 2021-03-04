@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class SnackBucket(Serialize):
+class SnackBucket(serialize-mcr):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},

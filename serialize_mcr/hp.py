@@ -68,7 +68,7 @@ def _err(e, _name, _type=None, data=None, _default=None, _expected=None):
         return f"Compound Property '{_name}' is not of type list or dict."
     elif e == 3:
         return (f"Compound Property '{_name}' does not have a proper "
-                f"serializer or schema.")
+                f"serialize-mcrr or schema.")
     elif e == 4:
         return (f"Property: '{_name}' with Value: '{data}' does not conform "
                 f"with Type: {str(_type)}.")

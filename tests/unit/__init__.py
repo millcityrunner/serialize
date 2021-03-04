@@ -1,13 +1,13 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 from tests.unit import const
 from tests.conftest import TestNameParameter, TestTypeParameter, TestNullableParameter, TestOptionalParameter, \
     TestDefaultParameter, TestDefaultParameterFailure, TestCompoundSchemaFunctionality, \
-    TestCompoundSerializerFunctionality, TestInvalidFields, test_name_param_data_success, \
+    TestCompoundserialize-mcrrFunctionality, TestInvalidFields, test_name_param_data_success, \
     test_name_param_data_failure, test_type_param_data_success, test_type_param_data_failure, \
     test_nullable_param_data_success, test_nullable_param_data_failure, test_optional_param_data_success, \
     test_optional_param_data_failure, test_default_param_data_success, test_default_param_data_failure, \
-    test_compound_schema_data_success, test_compound_schema_data_failure, test_compound_serializer_data_success, \
-    test_compound_serializer_data_failure, test_invalid_fields_check
+    test_compound_schema_data_success, test_compound_schema_data_failure, test_compound_serialize-mcrr_data_success, \
+    test_compound_serialize-mcrr_data_failure, test_invalid_fields_check
 
 import logging
 
@@ -32,10 +32,10 @@ class Expected(object):
 
 
 class Suite(object):
-    serializer = {}
+    serialize-mcrr = {}
 
     def __init__(self):
-        self.serial_j = Serialize
+        self.serial_j = serialize-mcr
         self.schema = [
             {'name': 'var1', 'type': (int,), 'nullable': False, 'optional': False, 'default': None},
             {'name': 'var2', 'type': (str,), 'nullable': False, 'optional': False, 'default': None},
@@ -44,42 +44,42 @@ class Suite(object):
         ]
         self.executor = {}
         self._bind(_type=const._na,
-                   serializer=TestNameParameter,
+                   serialize-mcrr=TestNameParameter,
                    suc_data=test_name_param_data_success(),
                    fail_data=test_name_param_data_failure())
         self._bind(_type=const._tp,
-                   serializer=TestTypeParameter,
+                   serialize-mcrr=TestTypeParameter,
                    suc_data=test_type_param_data_success(),
                    fail_data=test_type_param_data_failure())
         self._bind(_type=const._nu,
-                   serializer=TestNullableParameter,
+                   serialize-mcrr=TestNullableParameter,
                    suc_data=test_nullable_param_data_success(),
                    fail_data=test_nullable_param_data_failure())
         self._bind(_type=const._opt,
-                   serializer=TestOptionalParameter,
+                   serialize-mcrr=TestOptionalParameter,
                    suc_data=test_optional_param_data_success(),
                    fail_data=test_optional_param_data_failure())
         # default is a little different
-        #   two separate serializer schemas are needed to test out a default fail/success case
+        #   two separate serialize-mcrr schemas are needed to test out a default fail/success case
         self._bind(_type=const._def_succ,
-                   serializer=TestDefaultParameter,
+                   serialize-mcrr=TestDefaultParameter,
                    suc_data=test_default_param_data_success(),
                    fail_data=None)
         self._bind(_type=const._def_fail,
-                   serializer=TestDefaultParameterFailure,
+                   serialize-mcrr=TestDefaultParameterFailure,
                    suc_data=None,
                    fail_data=test_default_param_data_failure())
         self._bind(_type=const._sch,
-                   serializer=TestCompoundSchemaFunctionality,
+                   serialize-mcrr=TestCompoundSchemaFunctionality,
                    suc_data=test_compound_schema_data_success(),
                    fail_data=test_compound_schema_data_failure())
         self._bind(_type=const._srl,
-                   serializer=TestCompoundSerializerFunctionality,
-                   suc_data=test_compound_serializer_data_success(),
-                   fail_data=test_compound_serializer_data_failure())
+                   serialize-mcrr=TestCompoundserialize-mcrrFunctionality,
+                   suc_data=test_compound_serialize-mcrr_data_success(),
+                   fail_data=test_compound_serialize-mcrr_data_failure())
 
         self._bind(_type=const._miss_keys,
-                   serializer=TestInvalidFields,
+                   serialize-mcrr=TestInvalidFields,
                    suc_data=None,
                    fail_data=test_invalid_fields_check())
 
@@ -87,8 +87,8 @@ class Suite(object):
         self._valid_type()
         self._validation()
 
-    def _bind(self, _type, serializer, suc_data=None, fail_data=None):
-        self.serializer[_type] = serializer
+    def _bind(self, _type, serialize-mcrr, suc_data=None, fail_data=None):
+        self.serialize-mcrr[_type] = serialize-mcrr
         self.executor[_type] = {
             'success': suc_data,
             'failure': fail_data
@@ -96,13 +96,13 @@ class Suite(object):
 
     def _execute(self):
         for binding in self.executor:
-            if self.serializer[binding]:
+            if self.serialize-mcrr[binding]:
                 suc_data = self.executor[binding].get('success', None)
                 fail_data = self.executor[binding].get('failure', None)
 
                 if suc_data is not None:
                     try:
-                        self.serializer[binding](data=suc_data)
+                        self.serialize-mcrr[binding](data=suc_data)
 
                     except (ValueError, TypeError) as e:
                         raise e
@@ -115,7 +115,7 @@ class Suite(object):
                             fail_test_expected = fail_data['cases'][case]['expected']
 
                             try:
-                                self.serializer[binding](data=fail_test_data)
+                                self.serialize-mcrr[binding](data=fail_test_data)
 
                             except (ValueError, TypeError, KeyError) as e:
                                 assert type(e) == type(fail_test_expected)

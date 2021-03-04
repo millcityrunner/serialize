@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class FruitBucket(Serialize):
+class FruitBucket(serialize-mcr):
     # define how our data should look like using `schema`.
     schema = [
         {'name': 'apple'},
@@ -17,7 +17,7 @@ test1 = dict(
     pineapple="nice pineapple",
 )
 
-# serialize `test1` into `FruitBucket` object
+# serialize_mcr `test1` into `FruitBucket` object
 fruits = FruitBucket(test1)
 
 # `fruits` is a proper python object , which means that you can use

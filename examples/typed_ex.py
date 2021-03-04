@@ -1,8 +1,8 @@
 
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 from uuid import UUID
 
-class TypedData(Serialize):
+class TypedData(serialize-mcr):
     schema = [
         {'name': 'prop1', 'type': (int,)},
         {'name': 'prop2', 'type': (int, (1, 64, 343))},

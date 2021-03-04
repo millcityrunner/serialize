@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class IntEnumerationData(Serialize):
+class IntEnumerationData(serialize-mcr):
     schema = [
         {'name': 'prop2', 'type': (int, (1, 64, 343))}
     ]

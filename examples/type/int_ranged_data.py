@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class IntRangedData(Serialize):
+class IntRangedData(serialize-mcr):
     schema = [
         {'name': 'prop3', 'type': (int, range(1, 10, 3))}
     ]

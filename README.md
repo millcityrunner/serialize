@@ -1,26 +1,26 @@
 ## Latest Version
-serialize='0.0.1'
+serialize-mcr='0.0.1'
 
 ## Maintainers
 Junpu Fan (Original Author, `serial-j` = https://github.com/JunpuFan/serial-j/blob/master)  
 Andrew Ray, rayam@iu.edu (Primary Maintainer) 
 
 ## Features 
-   1. Serialize JSON / Python Dictionary data into Python object based on a compact data `schema`.
+   1. serialize-mcr JSON / Python Dictionary data into Python object based on a compact data `schema`.
        1. Data `schema` is a python list `[]` of many `{}`.
        2. Each `{}` in the `schema` defines a property in your `JSON` data. 
        3. The easiest form of a property definition is `{'name':'my_property'}` which means:
           1. Your `JSON` data **MUST** contain a property called `my_property` .
           2. Its value **MUST** be a **non-empty** value. 
           3. Non-empty means that the value of  `my_property` can not be `None`, `""`, `()`, `[]`, or `{}`.
-       4. Additional options are available to give you more control over your data definition. Those options are: `nullable`, `optional`, `is_compound`, `compound_serializer`, `compound_schema`, `type`, and `default`.
+       4. Additional options are available to give you more control over your data definition. Those options are: `nullable`, `optional`, `is_compound`, `compound_serialize-mcrr`, `compound_schema`, `type`, and `default`.
           1. Option `nullable: True` means the value of `my_property` can be `None`, or a nullable equivalent.
           2. Option `optional: True` means `my_property` may or may not exist in your `JSON` data.
              1. In case `my_property` exist, verify all applicable options.
              2. In case `my_property` doesn't exist, we ignore `my_property`.
           3. Option `is_compound: True` means `my_property` is a nested `JSON` object or an Array of `JSON` objects.
-             1. When `is_compound: True`, you must provide either `compound_serializer` or `compound_schema` so we can property serialize this nested data structure.
-                1. `compound_serializer` is a `Serialize` serializer class.
+             1. When `is_compound: True`, you must provide either `compound_serialize-mcrr` or `compound_schema` so we can property serialize-mcr this nested data structure.
+                1. `compound_serialize-mcrr` is a `serialize-mcr` serialize-mcrr class.
                 2. `compound_schema` has the same structure as the data `schema`.
           4. Option `type` gives you the power to validate the value of each property in your `JSON` data. Currently supported type definitions are:
              1. `'type': (bool,)` a boolean value.
@@ -44,7 +44,7 @@ Andrew Ray, rayam@iu.edu (Primary Maintainer)
              3. `default` defaulted value is `None`, therefore both `True` and `False` are also supported in the `default` realm of options.
    2. Automatically validate every JSON properties defined in the `schema` based on varies additional options specified in `schema`.
    3. You are given convenient built-in methods that you can use to convert your data back to JSON encoded string or JSON / Python Dictionary.
-   4. You have the flexibility of defining additional methods in your serializer class that utilize your data in anyway you want.
+   4. You have the flexibility of defining additional methods in your serialize-mcrr class that utilize your data in anyway you want.
 
 
 
@@ -52,25 +52,25 @@ Andrew Ray, rayam@iu.edu (Primary Maintainer)
 
 | Name                                                  | Code                                                         |
 | ----------------------------------------------------- | ------------------------------------------------------------ |
-| Basic Example                                         | [basic_ex.py](https://github.com/millcityrunner/serialize/blob/master/examples/basic_ex.py) |
-| Serialize Nested Json Data with `compound_schema`     | [nested_ex2.py](https://github.com/millcityrunner/serialize/blob/master/examples/nested_ex2.py) |
-| Serialize Nested Json Data with `compound_serializer` | [nested_ex1.py](https://github.com/millcityrunner/serialize/blob/master/examples/nested_ex1.py) |
-| Data Type Validation: all in one example              | [typed_ex.py](https://github.com/millcityrunner/serialize/blob/master/examples/typed_ex.py) |
-| Data Type Validation: `bool`                          | [bool_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/bool_data.py) |
-| Data Type Validation: `float`                         | [float_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/float_data.py) |
-| Data Type Validation: `int`                           | [int_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_data.py) |
-| Data Type Validation: `int enum`                      | [int_enum_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_enum_data.py) |
-| Data Type Validation: `int range`                     | [int_ranged_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_ranged_data.py) |
-| Data Type Validation: `int lambda`                    | [int_lambda_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/int_lambda_data.py) |
-| Data Type Validation: `str`                           | [str_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_data.py) |
-| Data Type Validation: `str enum`                      | [str_enum_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_enum_data.py) |
-| Data Type Validation: `str email`                     | [str_email_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_email_data.py) |
-| Data Type Validation: `str url`                       | [str_url_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_url_data.py) |
-| Data Type Validation: `str uuid`                      | [str_uuid_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_uuid_data.py) |
-| Data Type Validation: `str ipv4`                      | [str_ipv4_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_ipv4_data.py) |
-| Data Type Validation: `str ipv6`                      | [str_ipv6_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_ipv6_data.py) |
-| Data Type Validation: `str regex`                     | [str_regex_data.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/str_regex_data.py) |
-| Default Data: `default`                               | [extra_params_ex.py](https://github.com/millcityrunner/serialize/blob/master/examples/type/extra_params_ex.py) |
+| Basic Example                                         | [basic_ex.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/basic_ex.py) |
+| serialize-mcr Nested Json Data with `compound_schema`     | [nested_ex2.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/nested_ex2.py) |
+| serialize-mcr Nested Json Data with `compound_serialize-mcrr` | [nested_ex1.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/nested_ex1.py) |
+| Data Type Validation: all in one example              | [typed_ex.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/typed_ex.py) |
+| Data Type Validation: `bool`                          | [bool_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/bool_data.py) |
+| Data Type Validation: `float`                         | [float_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/float_data.py) |
+| Data Type Validation: `int`                           | [int_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/int_data.py) |
+| Data Type Validation: `int enum`                      | [int_enum_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/int_enum_data.py) |
+| Data Type Validation: `int range`                     | [int_ranged_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/int_ranged_data.py) |
+| Data Type Validation: `int lambda`                    | [int_lambda_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/int_lambda_data.py) |
+| Data Type Validation: `str`                           | [str_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_data.py) |
+| Data Type Validation: `str enum`                      | [str_enum_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_enum_data.py) |
+| Data Type Validation: `str email`                     | [str_email_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_email_data.py) |
+| Data Type Validation: `str url`                       | [str_url_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_url_data.py) |
+| Data Type Validation: `str uuid`                      | [str_uuid_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_uuid_data.py) |
+| Data Type Validation: `str ipv4`                      | [str_ipv4_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_ipv4_data.py) |
+| Data Type Validation: `str ipv6`                      | [str_ipv6_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_ipv6_data.py) |
+| Data Type Validation: `str regex`                     | [str_regex_data.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/str_regex_data.py) |
+| Default Data: `default`                               | [extra_params_ex.py](https://github.com/millcityrunner/serialize-mcr/blob/master/examples/type/extra_params_ex.py) |
 
 
 
@@ -79,9 +79,9 @@ Andrew Ray, rayam@iu.edu (Primary Maintainer)
 Let's first see a basic example. 
 
 ```python
-from serialize import Serialize
+from serialize_mcr import SerializeMCR
 
-class FruitBucket(Serialize):
+class FruitBucket(SerializeMCR):
     # define how our data should look like using `schema`.
     schema = [
         {'name': 'apple'},
@@ -96,7 +96,7 @@ test1 = dict(
     pineapple="nice pineapple",
 )
 
-# serialize `test1` into `FruitBucket` object
+serialize-mcr
 fruits = FruitBucket(test1)
 
 # `fruits` is a proper python object , which means that you can use 
@@ -124,18 +124,18 @@ print(fruits_data)
 
 ## Nested JSON Data 
 
-Let's see how we can serialize more complex data structure into python object.
+Let's see how we can serialize-mcr more complex data structure into python object.
 
 
 
 ##### Serializing Nested JSON Data with `compound_schema`.
 
-Define a nested data `schema` called `compound_schema` to serialize nested `JSON` data.
+Define a nested data `schema` called `compound_schema` to serialize-mcr nested `JSON` data.
 
 ```python
-from serialize import Serialize
+from serialize_mcr import SerializeMCR
 
-class SnackBucket(Serialize):
+class SnackBucket(SerializeMCR):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},
@@ -175,13 +175,13 @@ print(mysnacks)
 
 
 
-##### Serializing Nested JSON Data with `compound_serializer`.
+##### Serializing Nested JSON Data with `compound_serialize-mcrr`.
 
-Define a separete data `Serialize` serializer called `compound_serializer` to serialize nested `JSON` data.
+Define a separete data `serialize-mcr` serialize-mcrr called `compound_serialize-mcrr` to serialize-mcr nested `JSON` data.
 
 ```python
-from serialize import Serialize
-class Snack(Serialize):
+from serialize_mcr import SerializeMCR
+class Snack(SerializeMCR):
     schema = [
         # cheese is nice but is optional.
         {'name': 'cheese', 'optional': True},
@@ -192,12 +192,12 @@ class Snack(Serialize):
         {'name': 'chips', 'nullable': True},
     ]
     
-class NestedBucket(Serialize):
+class NestedBucket(SerializeMCR):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},
         {'name': 'pineapple'},
-        {'name': 'snack', 'is_compound': True, 'compound_serializer': Snack}
+        {'name': 'snack', 'is_compound': True, 'compound_serialize-mcrr': Snack}
     ]
     
 # test data for NestedBucket
@@ -223,10 +223,10 @@ print(my_snacks)
 a compact example that shows all data types currently supported by this package.
 
 ```python
-from serialize import Serialize
+from serialize_mcr import SerializeMCR
 
 
-class TypedData(Serialize):
+class TypedData(SerializeMCR):
     schema = [
         {'name': 'prop1', 'type': (int,)},
         {'name': 'prop2', 'type': (int, (1, 64, 343))},
@@ -278,9 +278,9 @@ print(data1)
 a simple way to ensure a value is set at all times for optional properties in a JSON schema
 
 ```python
-from serialize import Serialize
+from serialize_mcr import SerializeMCR
 
-class DefaultingValues(Serialize):
+class DefaultingValues(SerializeMCR):
     schema = [
         {'name': 'var1', 'type': (int,), 'optional': True, 'default': 0},
         {'name': 'var2', 'type': (str,), 'optional': True, 'default': 'str'},
@@ -300,7 +300,7 @@ test2 = {'var1': 24, 'var4': False}
 data2 = DefaultingValues(data=test2)
 
 
-class InvalidDefaultValues(Serialize):
+class InvalidDefaultValues(SerializeMCR):
     schema = [
         {'name': 'var1', 'type': (int,), 'default': 0},
         {'name': 'var2', 'type': (str,), 'optional': True, 'default': 1},
@@ -316,4 +316,4 @@ class InvalidDefaultValues(Serialize):
 # var5 is not optional, therefore a default value cannot be set
 
 ``` 
-**Note: The schema's of a Serialize are not validated until a dataset is passed into the Class, therefore improper schema definitions are acceptable, but will fail to build.**
+**Note: The schema's of a serialize-mcr are not validated until a dataset is passed into the Class, therefore improper schema definitions are acceptable, but will fail to build.**

@@ -1,7 +1,7 @@
-from serialize import Serialize
+from serialize-mcr import serialize-mcr
 
 
-class IntLambdaData(Serialize):
+class IntLambdaData(serialize-mcr):
     schema = [
         {'name': 'prop4', 'type': (int, lambda x: x % 2 == 0)}
     ]
