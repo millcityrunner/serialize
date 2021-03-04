@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class IntRangedData(SerialJ):
+class IntRangedData(Serialize):
     schema = [
         {'name': 'prop3', 'type': (int, range(1, 10, 3))}
     ]

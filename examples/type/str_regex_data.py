@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class StrRegexData(SerialJ):
+class StrRegexData(Serialize):
     schema = [
         {'name': 'prop1',
          'type': (str, r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")}

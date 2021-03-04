@@ -28,7 +28,7 @@ Description: ## Latest Version
                      2. In case `my_property` doesn't exist, we ignore `my_property`.
                   3. Option `is_compound: True` means `my_property` is a nested `JSON` object or an Array of `JSON` objects.
                      1. When `is_compound: True`, you must provide either `compound_serializer` or `compound_schema` so we can property serialize this nested data structure.
-                        1. `compound_serializer` is a `SerialJ` serializer class.
+                        1. `compound_serializer` is a `Serialize` serializer class.
                         2. `compound_schema` has the same structure as the data `schema`.
                   4. Option `type` gives you the power to validate the value of each property in your `JSON` data. Currently supported type definitions are:
                      1. `'type': (bool,)` a boolean value.
@@ -87,9 +87,9 @@ Description: ## Latest Version
         Let's first see a basic example. 
         
         ```python
-        from serial_j import SerialJ
+        from serial_j import Serialize
         
-        class FruitBucket(SerialJ):
+        class FruitBucket(Serialize):
             # define how our data should look like using `schema`.
             schema = [
                 {'name': 'apple'},
@@ -141,9 +141,9 @@ Description: ## Latest Version
         Define a nested data `schema` called `compound_schema` to serialize nested `JSON` data.
         
         ```python
-        from serial_j import SerialJ
+        from serial_j import Serialize
         
-        class SnackBucket(SerialJ):
+        class SnackBucket(Serialize):
             schema = [
                 {'name': 'apple'},
                 {'name': 'orange'},
@@ -185,11 +185,11 @@ Description: ## Latest Version
         
         ##### Serializing Nested JSON Data with `compound_serializer`.
         
-        Define a separete data `SerialJ` serializer called `compound_serializer` to serialize nested `JSON` data.
+        Define a separete data `Serialize` serializer called `compound_serializer` to serialize nested `JSON` data.
         
         ```python
-        from serial_j import SerialJ
-        class Snack(SerialJ):
+        from serial_j import Serialize
+        class Snack(Serialize):
             schema = [
                 # cheese is nice but is optional.
                 {'name': 'cheese', 'optional': True},
@@ -200,7 +200,7 @@ Description: ## Latest Version
                 {'name': 'chips', 'nullable': True},
             ]
             
-        class NestedBucket(SerialJ):
+        class NestedBucket(Serialize):
             schema = [
                 {'name': 'apple'},
                 {'name': 'orange'},
@@ -231,10 +231,10 @@ Description: ## Latest Version
         a compact example that shows all data types currently supported by this package.
         
         ```python
-        from serial_j import SerialJ
+        from serial_j import Serialize
         
         
-        class TypedData(SerialJ):
+        class TypedData(Serialize):
             schema = [
                 {'name': 'prop1', 'type': (int,)},
                 {'name': 'prop2', 'type': (int, (1, 64, 343))},
@@ -286,9 +286,9 @@ Description: ## Latest Version
         a simple way to ensure a value is set at all times for optional properties in a JSON schema
         
         ```python
-        from serial_j import SerialJ
+        from serial_j import Serialize
         
-        class DefaultingValues(SerialJ):
+        class DefaultingValues(Serialize):
             schema = [
                 {'name': 'var1', 'type': (int,), 'optional': True, 'default': 0},
                 {'name': 'var2', 'type': (str,), 'optional': True, 'default': 'str'},
@@ -308,7 +308,7 @@ Description: ## Latest Version
         data2 = DefaultingValues(data=test2)
         
         
-        class InvalidDefaultValues(SerialJ):
+        class InvalidDefaultValues(Serialize):
             schema = [
                 {'name': 'var1', 'type': (int,), 'default': 0},
                 {'name': 'var2', 'type': (str,), 'optional': True, 'default': 1},
@@ -324,7 +324,7 @@ Description: ## Latest Version
         # var5 is not optional, therefore a default value cannot be set
         
         ``` 
-        **Note: The schema's of a SerialJ are not validated until a dataset is passed into the Class, therefore improper schema definitions are acceptable, but will fail to build.**
+        **Note: The schema's of a Serialize are not validated until a dataset is passed into the Class, therefore improper schema definitions are acceptable, but will fail to build.**
         
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3

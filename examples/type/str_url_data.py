@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class StrURLData(SerialJ):
+class StrURLData(Serialize):
     schema = [
         {'name': 'prop1', 'type': (str, 'url')}
     ]

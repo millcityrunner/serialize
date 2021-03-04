@@ -40,18 +40,18 @@ instantiated.
     https://docs.pytest.org/en
     /latest/fixture.html#fixture-finalization-executing-teardown-code
 """
-from serialize import SerialJ
+from serialize import Serialize
 
 
 # serializers
-class TestNameParameter(SerialJ):
+class TestNameParameter(Serialize):
     schema = [
         # success cases
         {'name': 'var1', 'type': (str,)},
         {'name': 'var2', 'type': (str,)}
     ]
 
-class TestTypeParameter(SerialJ):
+class TestTypeParameter(Serialize):
     test_regex = "^[A-Za-z]{1}[0-9]{1}$"
     schema = [
         {'name': 'var1', 'type': (int,), 'optional': True},
@@ -70,21 +70,21 @@ class TestTypeParameter(SerialJ):
     ]
 
 
-class TestNullableParameter(SerialJ):
+class TestNullableParameter(Serialize):
     schema = [
         {'name': 'var1', 'type': (str,), 'nullable': False},
         {'name': 'var2', 'type': (str,), 'nullable': True}
     ]
 
 
-class TestOptionalParameter(SerialJ):
+class TestOptionalParameter(Serialize):
     schema = [
         {'name': 'var1', 'type': (str,), 'optional': True},
         {'name': 'var2', 'type': (str,), 'optional': False}
     ]
 
 
-class TestDefaultParameter(SerialJ):
+class TestDefaultParameter(Serialize):
     test_regex = '^[A-Za-z0-9]{3}$'
     schema = [
         {'name': 'var1', 'type': (str,), 'optional': True, 'default': 'string'},
@@ -98,7 +98,7 @@ class TestDefaultParameter(SerialJ):
     ]
 
 
-class TestDefaultParameterFailure(SerialJ):
+class TestDefaultParameterFailure(Serialize):
     test_regex = '^[A-Za-z0-9]{3}$'
     schema = [
         {'name': 'var1', 'type': (str,), 'optional': True, 'default': 1},
@@ -112,7 +112,7 @@ class TestDefaultParameterFailure(SerialJ):
     ]
 
 
-class TestCompoundSchemaFunctionality(SerialJ):
+class TestCompoundSchemaFunctionality(Serialize):
     schema = [
         {'name': 'var1', 'is_compound': True,
          'compound_schema': [
@@ -127,18 +127,18 @@ class TestCompoundSchemaFunctionality(SerialJ):
     ]
 
 
-class CompoundSerializerHelper(SerialJ):
+class CompoundSerializerHelper(Serialize):
     schema = [
         {'name': 'num1', 'type': (int,)}
     ]
 
 
-class TestCompoundSerializerFunctionality(SerialJ):
+class TestCompoundSerializerFunctionality(Serialize):
     schema = [
         {'name': 'var1', 'is_compound': True, 'compound_serializer': CompoundSerializerHelper}
     ]
 
-class TestInvalidFields(SerialJ):
+class TestInvalidFields(Serialize):
     schema = [
         # success cases
         {'name': 'var1', 'type': (str,)},

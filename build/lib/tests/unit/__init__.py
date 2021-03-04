@@ -1,4 +1,4 @@
-from serialize import SerialJ
+from serialize import Serialize
 from tests.unit import const
 from tests.conftest import TestNameParameter, TestTypeParameter, TestNullableParameter, TestOptionalParameter, \
     TestDefaultParameter, TestDefaultParameterFailure, TestCompoundSchemaFunctionality, \
@@ -35,7 +35,7 @@ class Suite(object):
     serializer = {}
 
     def __init__(self):
-        self.serial_j = SerialJ
+        self.serial_j = Serialize
         self.schema = [
             {'name': 'var1', 'type': (int,), 'nullable': False, 'optional': False, 'default': None},
             {'name': 'var2', 'type': (str,), 'nullable': False, 'optional': False, 'default': None},

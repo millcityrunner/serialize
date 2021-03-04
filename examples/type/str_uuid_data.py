@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class StrUUIDData(SerialJ):
+class StrUUIDData(Serialize):
     schema = [
         {'name': 'prop1', 'type': (str, 'uuid')}
     ]

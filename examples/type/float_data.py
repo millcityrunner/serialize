@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class FloatData(SerialJ):
+class FloatData(Serialize):
     schema = [
         {'name': 'prop1', 'type': (float,)}
     ]

@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class Snack(SerialJ):
+class Snack(Serialize):
     schema = [
         # cheese is nice but is optional.
         {'name': 'cheese', 'optional': True},
@@ -13,7 +13,7 @@ class Snack(SerialJ):
     ]
 
 
-class NestedBucket(SerialJ):
+class NestedBucket(Serialize):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},

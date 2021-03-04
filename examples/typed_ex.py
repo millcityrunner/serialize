@@ -1,8 +1,8 @@
 
-from serialize import SerialJ
+from serialize import Serialize
 from uuid import UUID
 
-class TypedData(SerialJ):
+class TypedData(Serialize):
     schema = [
         {'name': 'prop1', 'type': (int,)},
         {'name': 'prop2', 'type': (int, (1, 64, 343))},

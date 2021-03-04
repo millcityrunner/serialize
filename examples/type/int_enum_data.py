@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class IntEnumerationData(SerialJ):
+class IntEnumerationData(Serialize):
     schema = [
         {'name': 'prop2', 'type': (int, (1, 64, 343))}
     ]

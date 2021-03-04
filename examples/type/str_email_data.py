@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class StrEmailData(SerialJ):
+class StrEmailData(Serialize):
     schema = [
         {'name': 'prop1', 'type': (str, 'email')}
     ]

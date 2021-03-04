@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class SnackBucket(SerialJ):
+class SnackBucket(Serialize):
     schema = [
         {'name': 'apple'},
         {'name': 'orange'},

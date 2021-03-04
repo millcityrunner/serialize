@@ -1,6 +1,6 @@
-from serialize import SerialJ
+from serialize import Serialize
 
-class OptionalArgs(SerialJ):
+class OptionalArgs(Serialize):
     # the `optional`, `nullable`, and `default` are optional parameters
     # `optional` -> defaults to False, if True this parameter is not required to be passed into the serializer
     # `nullable` -> defaults to False, if True this parameter can be passed in as a `null` equivalent value
@@ -12,7 +12,7 @@ class OptionalArgs(SerialJ):
     ]
 
 
-class CannotBeDefaulted(SerialJ):
+class CannotBeDefaulted(Serialize):
     schema = [
         {'name': 'player_1', 'type': (str,), 'optional': False, 'nullable': False, 'default': 'Player 1'}
     ]

@@ -8,7 +8,7 @@ from serialize.const import _spbtps, _na, _nu, _tp, _opt, _cp, _srl, \
 name = "serialize"
 
 
-class SerialJ(object):
+class Serialize(object):
     schema = []
 
     def __init__(self, data):
@@ -148,7 +148,7 @@ class SerialJ(object):
                         elif isinstance(data[_name], dict):
                             self.__dict__[_name] = prop[_srl](data[_name])
                     elif prop[_sch]:
-                        _cls = SerialJ
+                        _cls = Serialize
                         _cls.schema = prop[_sch]
                         if isinstance(data[_name], list):
                             self.__dict__[_name] = [_cls(o)

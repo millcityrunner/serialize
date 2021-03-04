@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class StrIPv6Data(SerialJ):
+class StrIPv6Data(Serialize):
     schema = [
         {'name': 'prop1', 'type': (str, 'ipv6')}
     ]

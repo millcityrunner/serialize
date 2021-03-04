@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class FruitBucket(SerialJ):
+class FruitBucket(Serialize):
     # define how our data should look like using `schema`.
     schema = [
         {'name': 'apple'},

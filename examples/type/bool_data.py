@@ -1,7 +1,7 @@
-from serialize import SerialJ
+from serialize import Serialize
 
 
-class BoolData(SerialJ):
+class BoolData(Serialize):
     schema = [
         {'name': 'prop1', 'type': (bool,)}
     ]
