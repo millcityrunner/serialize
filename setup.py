@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='serialize-mcr',
-    version='0.0.1',
+    version='1.0.0',
     author='Andrew Ray',
-    author_email='rayam@iu.edu',
+    author_email='mcaray9@gmail.com',
     description='Creating a serializer for data structures',
     long_description=long_description,
     long_description_content_type="text/markdown",
